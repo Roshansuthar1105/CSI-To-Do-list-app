@@ -2,32 +2,73 @@
 
 A modern and beautifully styled To-Do List application built using React and Tailwind CSS, featuring a stunning glassmorphism design, animations, and persistent local storage.
 
+---
+
 ## 🚀 Live Demo
-[Visit Deployed App](https://your-deployment-link.vercel.app)
+👉 [Visit Deployed App](https://csi-to-do-list.netlify.app/)
 
 ## 📂 GitHub Repository
-[View Source on GitHub](https://github.com/Roshansuthar1105/celebal-internship-assignment)
+📁 [View Source on GitHub](https://github.com/Roshansuthar1105/CSI-To-Do-list-app)
 
 ## 👨‍💼 Connect with Me
-- [LinkedIn – Roshan](https://www.linkedin.com/in/roshansuthar/)
+- 🔗 [LinkedIn – Roshan Suthar](https://www.linkedin.com/in/roshansuthar/)
+
+---
 
 ## ✨ Features
-- Add / Delete tasks
-- Mark tasks as complete/incomplete
-- Filter tasks by status (All / Active / Completed)
-- Persist data using `localStorage`
-- Responsive, modern UI with glassmorphism & animation effects
+- ✅ Add / Delete tasks
+- ✅ Mark tasks as complete or incomplete
+- ✅ Filter tasks by All / Active / Completed
+- ✅ Delete All & Mark All Completed actions
+- ✅ Smooth animations with Tailwind CSS
+- ✅ Responsive glassmorphism UI
+- ✅ State persistence via `localStorage`
+- ✅ Modern UX with scrollable task list
+
+---
 
 ## 🛠️ Built With
-- React
-- Tailwind CSS
-- JavaScript (ES6)
-- HTML5 / CSS3
 
-## 📸 Screenshots
+- ⚛️ React 19
+- 🎨 Tailwind CSS 4
+- 🧠 Custom Hooks (`useLocalStorage`)
+- 📦 Vite
+- 🔥 `react-hot-toast`
+
+---
+
+## 🧱 Project Structure
+
+```
+todo-app/
+├── public/
+│   └── favicon.png
+├── src/
+│   ├── App.jsx
+│   ├── components/
+│   │   ├── TodoInput.jsx
+│   │   └── TodoItem.jsx
+│   ├── hooks/
+│   │   └── useLocalStorage.js
+│   ├── index.css
+│   └── main.jsx
+├── tailwind.config.js
+├── index.html
+└── package.json
+```
+
+---
+
+## 📸 Screenshot
+
 ![UI Screenshot](https://cdn.dribbble.com/userupload/24795533/file/original-419b0a8b467e35c44329015bf6842a39.png?resize=1504x1128&vertical=center)
 
+---
+
 ## 🧑‍💻 Getting Started
+
+Clone the repository and run locally:
+
 ```bash
 git clone https://github.com/Roshansuthar1105/CSI-To-Do-list-app
 cd react-todo-glassmorphism
@@ -35,5 +76,26 @@ npm install
 npm run dev
 ```
 
+---
+
+## 📦 Dependencies
+
+```json
+"dependencies": {
+  "@tailwindcss/vite": "^4.1.10",
+  "react": "^19.1.0",
+  "react-dom": "^19.1.0",
+  "react-hot-toast": "^2.5.2",
+  "tailwindcss": "^4.1.10"
+}
+```
+
+---
+
 ## 📄 License
-MIT License © 2025 Roshan
+
+MIT License © 2025 Roshan Suthar
+
+This project is licensed under the terms of the MIT license. Feel free to use, modify, and distribute it as needed.
+
+---
