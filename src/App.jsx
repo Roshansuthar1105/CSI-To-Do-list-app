@@ -2,6 +2,7 @@ import { useState } from 'react';
 import useLocalStorage from './hooks/useLocalStorage';
 import TodoInput from './components/TodoInput';
 import TodoItem from './components/TodoItem';
+import toast from 'react-hot-toast';
 
 export default function ToDoApp() {
   const [task, setTask] = useState('');
@@ -10,13 +11,25 @@ export default function ToDoApp() {
 
   const addTask = () => {
     if (task.trim()) {
+      toast.success("Task Added")
       setTodos([...todos, { id: Date.now(), text: task.trim(), done: false }]);
       setTask('');
+    }else{
+      toast.error("Please add some text");
     }
   };
 
-  const deleteTask = (id) => setTodos(todos.filter(t => t.id !== id));
-  const toggleTask = (id) => setTodos(todos.map(t => t.id === id ? { ...t, done: !t.done } : t));
+  const deleteTask = (id) => {setTodos(todos.filter(t => t.id !== id));toast.success('Task deleted!');}
+  // const toggleTask = (id) => {setTodos(todos.map(t => t.id === id ? { ...t, done: !t.done } : t));toast.success("Task Done");}
+  const toggleTask = (id) => {
+    const updatedTodos = todos.map(t => 
+      t.id === id ? { ...t, done: !t.done } : t
+    );
+    setTodos(updatedTodos);
+    
+    const toggledTask = todos.find(t => t.id === id);
+    toast.success(toggledTask.done ? 'Marked as incomplete' : 'Marked as completed');
+  };
   const filteredTodos = todos.filter(t => filter === 'all' ? true : filter === 'active' ? !t.done : t.done);
 
   return (
