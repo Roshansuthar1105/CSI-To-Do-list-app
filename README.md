@@ -5,10 +5,10 @@ A modern and beautifully styled To-Do List application built using React and Tai
 ---
 
 ## 🚀 Live Demo
-👉 [Visit Deployed App](https://csi-to-do-list.netlify.app/)
+👉 [https://csi-to-do-list.netlify.app](https://csi-to-do-list.netlify.app/)
 
 ## 📂 GitHub Repository
-📁 [View Source on GitHub](https://github.com/Roshansuthar1105/CSI-To-Do-list-app)
+📁 [https://github.com/Roshansuthar1105/CSI-To-Do-list-app](https://github.com/Roshansuthar1105/CSI-To-Do-list-app)
 
 ## 👨‍💼 Connect with Me
 - 🔗 [LinkedIn – Roshan Suthar](https://www.linkedin.com/in/roshansuthar/)
@@ -61,7 +61,10 @@ todo-app/
 
 ## 📸 Screenshot
 
-![UI Screenshot](https://cdn.dribbble.com/userupload/24795533/file/original-419b0a8b467e35c44329015bf6842a39.png?resize=1504x1128&vertical=center)
+| Screenshot 1 | Screenshot 2 |
+| ------------ | ------------ |
+| ![Screenshot 1](https://github.com/user-attachments/assets/b02bf5b3-dbe8-4681-94f0-4b4c1c3f3442) | ![Screenshot 2](https://github.com/user-attachments/assets/4ae0e908-288c-4cd1-8da9-94f4197e4e4f) |
+
 
 ---
 
@@ -95,7 +98,6 @@ npm run dev
 ## 📄 License
 
 MIT License © 2025 Roshan Suthar
-
 This project is licensed under the terms of the MIT license. Feel free to use, modify, and distribute it as needed.
 
 ---
