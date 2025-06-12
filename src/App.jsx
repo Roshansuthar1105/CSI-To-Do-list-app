@@ -3,6 +3,7 @@ import useLocalStorage from './hooks/useLocalStorage';
 import TodoInput from './components/TodoInput';
 import TodoItem from './components/TodoItem';
 import toast from 'react-hot-toast';
+import Footer from './components/Footer';
 
 export default function ToDoApp() {
   const [task, setTask] = useState('');
@@ -89,8 +90,8 @@ export default function ToDoApp() {
             )}
           </ul>
         </div>
+          <Footer/>
       </div>
-
       {/* Animations */}
       <style jsx="true" global>{`
         @keyframes float {
