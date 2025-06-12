@@ -26,7 +26,7 @@ export default function ToDoApp() {
       <div className="absolute bottom-10 right-10 w-80 h-80 rounded-full bg-cyan-600/20 blur-lg animate-float-delay"></div>
       <div className="absolute top-1/3 right-1/4 w-40 h-40 rounded-full bg-indigo-600/20 blur-lg animate-float-delay-2"></div>
 
-      <div className="relative w-full max-w-2xl bg-black/30 backdrop-blur-sm border border-white/10 rounded-3xl shadow-2xl overflow-hidden z-20">
+      <div className="relative w-full max-w-3xl  bg-black/30 backdrop-blur-sm border border-white/20 rounded-3xl shadow-2xl overflow-hidden z-20">
         <div className="p-8">
           <h2 className="text-4xl font-bold text-center bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-6">
             To-Do List
@@ -40,7 +40,7 @@ export default function ToDoApp() {
               <button
                 key={f}
                 onClick={() => setFilter(f)}
-                className={`px-4 py-2 rounded-xl ${filter === f ? 'bg-cyan-500/80' : 'bg-gray-700/40 hover:bg-gray-600/60'
+                className={`px-4 py-2 rounded-xl cursor-pointer ${filter === f ? 'bg-cyan-500/80' : 'bg-gray-700/40 hover:bg-gray-600/60'
                   }`}
               >
                 {f.charAt(0).toUpperCase() + f.slice(1)}
@@ -53,8 +53,8 @@ export default function ToDoApp() {
             {filteredTodos.length === 0 ? (
               <p className="text-center text-gray-300">No tasks to display</p>
             ) : (
-              filteredTodos.map((t) => (
-                <TodoItem key={t.id} todo={t} toggleTask={toggleTask} deleteTask={deleteTask} />
+              filteredTodos.map((t,ind) => (
+                <TodoItem key={t.id} todo={t} no={ind+1} toggleTask={toggleTask} deleteTask={deleteTask} />
               ))
             )}
           </ul>
