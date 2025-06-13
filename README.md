@@ -17,6 +17,7 @@ A modern and beautifully styled To-Do List application built using React and Tai
 
 ## ✨ Features
 - ✅ Add / Delete tasks
+- ✅ Edit Tasks
 - ✅ Mark tasks as complete or incomplete
 - ✅ Filter tasks by All / Active / Completed
 - ✅ Delete All & Mark All Completed actions
@@ -48,6 +49,7 @@ todo-app/
 │   ├── components/
 │   │   ├── TodoInput.jsx
 │   │   └── TodoItem.jsx
+│   │   └── EditTodo.jsx
 │   ├── hooks/
 │   │   └── useLocalStorage.js
 │   ├── index.css
