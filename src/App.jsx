@@ -1,19 +1,21 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import useLocalStorage from './hooks/useLocalStorage';
 import TodoInput from './components/TodoInput';
 import TodoItem from './components/TodoItem';
 import toast from 'react-hot-toast';
 import Footer from './components/Footer';
+import EditTodo from './components/EditTodo';
 
 export default function ToDoApp() {
   const [task, setTask] = useState('');
   const [todos, setTodos] = useLocalStorage('todos', []);
   const [filter, setFilter] = useState('all');
+  const [editId , setEditId]=useState(null);
   const actions = ['delete all', 'mark all as completed'];
   const addTask = () => {
     if (task.trim()) {
       toast.success("Task Added")
-      setTodos([...todos, { id: Date.now(), text: task.trim(), done: false,isEditing:false }]);
+      setTodos([...todos, { id: Date.now(), text: task.trim(), done: false }]);
       setTask('');
     } else {
       toast.error("Please add some text");
@@ -32,7 +34,7 @@ export default function ToDoApp() {
   };
   const editTask = (id,task) => {
     const updatedTodos = todos.map(t =>
-      t.id === id ? { ...t, isEditing: false,text:task } : {...t,isEditing:false}
+      t.id === id ? { ...t, text:task } : t
     );
     console.log(updatedTodos);
     setTodos(updatedTodos);
@@ -72,11 +74,14 @@ export default function ToDoApp() {
                 key={action}
                 onClick={() => {
                   if (action === 'delete all') {
+                    if(todos.length===0)toast.error("No todos found to be deleted !");
+                    else toast.success("All Task Deleted!")
                     setTodos([]);
-                    toast.success("All Task Deleted!")
                   } else if (action === 'mark all as completed') {
+                    const filteredToDo = todos.filter((t)=> !t.done);
+                    if(filteredToDo.length==0)toast.error("No tasks found to be completed!")
+                    else toast.success("All Task Marked as completed!")
                     setTodos(prev => prev.map(t => ({ ...t, done: true })));
-                    toast.success("All Task Marked as completed!")
                   }
                 }}
                 className="px-4 py-2 cursor-pointer rounded-xl bg-gray-700/40 hover:bg-red-600/80 text-white"
@@ -91,8 +96,9 @@ export default function ToDoApp() {
             {filteredTodos.length === 0 ? (
               <p className="text-center text-gray-300">No tasks to display</p>
             ) : (
-              filteredTodos.map((t, ind) => (
-                <TodoItem key={t.id} todo={t} no={ind + 1} toggleTask={toggleTask} deleteTask={deleteTask} editTask={editTask} />
+              filteredTodos.map((t,ind) => (
+                editId!=null && t.id===editId ? <EditTodo key={t.id} editTask={editTask} task={t} setEditId={setEditId} /> :
+                <TodoItem key={t.id} no={ind+1} todo={t} toggleTask={toggleTask} deleteTask={deleteTask} setEditId={setEditId} />
               ))
             )}
           </ul>
