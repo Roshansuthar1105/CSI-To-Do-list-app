@@ -13,7 +13,7 @@ export default function ToDoApp() {
   const addTask = () => {
     if (task.trim()) {
       toast.success("Task Added")
-      setTodos([...todos, { id: Date.now(), text: task.trim(), done: false }]);
+      setTodos([...todos, { id: Date.now(), text: task.trim(), done: false,isEditing:false }]);
       setTask('');
     } else {
       toast.error("Please add some text");
@@ -21,7 +21,6 @@ export default function ToDoApp() {
   };
 
   const deleteTask = (id) => { setTodos(todos.filter(t => t.id !== id)); toast.success('Task deleted!'); }
-  // const toggleTask = (id) => {setTodos(todos.map(t => t.id === id ? { ...t, done: !t.done } : t));toast.success("Task Done");}
   const toggleTask = (id) => {
     const updatedTodos = todos.map(t =>
       t.id === id ? { ...t, done: !t.done } : t
@@ -30,6 +29,14 @@ export default function ToDoApp() {
 
     const toggledTask = todos.find(t => t.id === id);
     toast.success(toggledTask.done ? 'Marked as incomplete' : 'Marked as completed');
+  };
+  const editTask = (id,task) => {
+    const updatedTodos = todos.map(t =>
+      t.id === id ? { ...t, isEditing: false,text:task } : {...t,isEditing:false}
+    );
+    console.log(updatedTodos);
+    setTodos(updatedTodos);
+    toast.success("Task Edited !");
   };
   const filteredTodos = todos.filter(t => filter === 'all' ? true : filter === 'active' ? !t.done : t.done);
 
@@ -85,7 +92,7 @@ export default function ToDoApp() {
               <p className="text-center text-gray-300">No tasks to display</p>
             ) : (
               filteredTodos.map((t, ind) => (
-                <TodoItem key={t.id} todo={t} no={ind + 1} toggleTask={toggleTask} deleteTask={deleteTask} />
+                <TodoItem key={t.id} todo={t} no={ind + 1} toggleTask={toggleTask} deleteTask={deleteTask} editTask={editTask} />
               ))
             )}
           </ul>
@@ -93,7 +100,7 @@ export default function ToDoApp() {
           <Footer/>
       </div>
       {/* Animations */}
-      <style jsx="true" global>{`
+      <style jsx="true" global='true'>{`
         @keyframes float {
           0% { transform: translateY(0px) rotate(5deg); }
           100% { transform: translateY(-20px) rotate(0deg); }
