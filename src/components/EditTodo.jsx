@@ -25,7 +25,7 @@ function EditTodo({editTask,task,setEditId}) {
             className="flex-1 px-4 py-3 bg-black/20 rounded-xl text-white placeholder-gray-200 focus:ring-0 ring-0 outline-none "
         />
             <button
-                onClick={() => {setEditId(null); editTask(todo.id, task);}}
+                onClick={() => {setEditId(null); editTask(todo.id, text);}}
                 className="cursor-pointer bg-gradient-to-r from-cyan-500 to-purple-600 px-6 py-1 rounded-xl text-white font-semibold hover:from-cyan-600 hover:to-purple-700 transition"
             >
                 Add
